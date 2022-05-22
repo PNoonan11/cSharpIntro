@@ -7,14 +7,20 @@ using Cafe.Repository;
 namespace Cafe.Repository
 {
     public class MenuRepository
+
     {
+        List<Menu> _menuList = new List<Menu>();
+
+        public void AddMealToDatabase(Menu meal)
+        {
+            _menuList.Add(meal);
+        }
+        public List<Menu> ViewWholeMenu()
+        {
+            return _menuList;
+        }
 
 
-        List<string> chickenTacoIngredients = new List<string>() {"Chicken", "Cheese", "Tomatoes",
-        "Hot Sauce", "Lettuce"};
-        List<string> beefTacoIngredients = new List<string>() {"Beef", "Cheese", "Tomatoes",
-        "Hot Sauce", "Lettuce"};
-        List<string> chickenOnTheBeachIngredients = new List<string>() { "Chicken", "Cheese", "Rice", "More Cheese", "Love" };
 
 
 
@@ -22,6 +28,11 @@ namespace Cafe.Repository
 
         public void SeedMenuData()
         {
+            List<string> chickenTacoIngredients = new List<string>() {"Chicken", "Cheese", "Tomatoes",
+        "Hot Sauce", "Lettuce"};
+            List<string> beefTacoIngredients = new List<string>() {"Beef", "Cheese", "Tomatoes",
+        "Hot Sauce", "Lettuce"};
+            List<string> chickenOnTheBeachIngredients = new List<string>() { "Chicken", "Cheese", "Rice", "More Cheese", "Love" };
 
             Menu chickenTaco = new Menu("Chicken Taco Meal", 1, "Two Chicken Tacos in flour tortillas with a side of beans and rice", 6.75m, chickenTacoIngredients);
 
@@ -34,7 +45,7 @@ namespace Cafe.Repository
 
             foreach (Menu x in menuArr)
             {
-                //AddMenuToDatabase(x);
+                AddMealToDatabase(x);
             }
 
         }
