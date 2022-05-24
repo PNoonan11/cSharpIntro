@@ -42,6 +42,36 @@ namespace Cafe.ConsoleApp
             Console.ReadKey();
         }
 
+        public void EnterMenuItemToDelete()
+        {
+            Console.WriteLine("Enter a meal name to delete from menu:  ");
+        }
+
+        public void MenuItemSuccessfullyRemoved(Menu meal)
+        {
+            Console.WriteLine($"{meal.NameOfMeal} has been removed from the menu.");
+        }
+
+        public void MealNotFound(string mealName)
+        {
+            Console.WriteLine(String.Format("{0} not found", mealName));
+        }
+
+        public void AnErrorHasOccurred()
+        {
+            Console.WriteLine("An error has occurred, please try again.");
+        }
+
+        public void InvalidInput()
+        {
+            Console.WriteLine("Invalid menu number entered, please try again. ");
+        }
+        
+        public void ClearTheConsole()
+        {
+            Console.Clear();
+        }
+
 
 
 

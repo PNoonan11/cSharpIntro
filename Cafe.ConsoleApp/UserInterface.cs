@@ -33,13 +33,13 @@ namespace Cafe.ConsoleApp
                     //CreateNewMenuItem();
                     break;
                 case "2":
-                    //DeleteMenuItem();
+                    DeleteMenuItem();
                     break;
                 case "3":
                     ViewWholeMenu();
                     break;
                 default:
-                    //InvalidInputReturnToMainMenu();
+                    InvalidInputReturnToMainMenu();
                     break;
             }
         }
@@ -50,6 +50,42 @@ namespace Cafe.ConsoleApp
             _console.DisplayMenu(wholeMenu);
 
             _console.PressAnyKeyToContinue();
+        }
+
+        private void DeleteMenuItem()
+        {
+            ViewWholeMenu();
+
+            _console.EnterMenuItemToDelete();
+
+            String menuItemToBeDeleted = _console.GetUserInput();
+
+            Menu mealToDelete = _repo.GetMealByName(menuItemToBeDeleted);
+            if (mealToDelete != null)
+            {
+                bool isSuccess = _repo.DeleteMenuItem(mealToDelete);
+
+                if (isSuccess)
+                {
+                    _console.MenuItemSuccessfullyRemoved(mealToDelete);
+                }
+                else
+                {
+                    _console.AnErrorHasOccurred();
+                }
+            }
+            else
+            {
+                _console.MealNotFound(menuItemToBeDeleted);
+            }
+            _console.PressAnyKeyToContinue();
+        }
+
+        private void InvalidInputReturnToMainMenu()
+        {
+            _console.InvalidInput();
+            _console.PressAnyKeyToContinue();
+            _console.PrintMainMenu();
         }
 
 
