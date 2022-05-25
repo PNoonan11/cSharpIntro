@@ -18,14 +18,18 @@ namespace Cafe.ConsoleApp
         {
             return Console.ReadLine();
         }
+        private readonly Menu meal;
 
         public void PrintMenu(Menu meal)
         {
+
+            string ingredientsIndividual = string.Join(",", meal.Ingredients);
+
             Console.WriteLine($"Name of Meal: {meal.NameOfMeal}\n" +
-                            $"Menu Number: {meal.MealNumber}\n" +
-                            $"Description: {meal.Description}\n" +
-                            $"Price: ${meal.Price}\n" +
-                            $"Ingredients: {meal.Ingredients}\n");
+            $"Menu Number: {meal.MealNumber}\n" +
+            $"Description: {meal.Description}\n" +
+            $"Price: ${meal.Price}\n" +
+            $"Ingredients: {ingredientsIndividual}\n");
         }
         public void DisplayMenu(List<Menu> meal)
         {
@@ -35,10 +39,39 @@ namespace Cafe.ConsoleApp
             }
         }
 
+        public void EnterNewMealName()
+        {
+            Console.WriteLine("Enter the name of the new meal: ");
+        }
+        public void EnterNewMealNumber()
+        {
+            Console.WriteLine("Enter the menu number for the new meal: ");
+        }
+
+        public void EnterNewMealDescription()
+        {
+            Console.WriteLine("Enter the description for the new meal: ");
+        }
+        public void EnterNewMealPrice()
+        {
+            Console.WriteLine("Enter the price of the new meal: ");
+        }
+        public void EnterNewMealIngredient()
+        {
+            Console.WriteLine("Enter an ingredient for the new meal: ");
+        }
+
+        public void AddAdditionalIngredientsToMeal()
+        {
+            Console.WriteLine("Would you like to add an additional ingredient to the meal? Enter y or n:\n");
+        }
+
+
+
 
         public void PressAnyKeyToContinue()
         {
-            Console.Write("Press any key to continue...");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
 
@@ -66,7 +99,7 @@ namespace Cafe.ConsoleApp
         {
             Console.WriteLine("Invalid menu number entered, please try again. ");
         }
-        
+
         public void ClearTheConsole()
         {
             Console.Clear();

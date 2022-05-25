@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Cafe.Repository;
 
+
 namespace Cafe.Repository
 {
     public class MenuRepository
@@ -39,6 +40,11 @@ namespace Cafe.Repository
 
 
 
+
+
+
+
+
         public bool DeleteMenuItem(Menu meal)
         {
             int allItemsOnMenu = _menuList.Count();
@@ -61,22 +67,17 @@ namespace Cafe.Repository
             string[] chickenTacoIngredients = {"Chicken", "Cheese", "Tomatoes",
         "Hot Sauce", "Lettuce"};
 
-            string chickenTacoIngredientsToPrint = string.Join(",", chickenTacoIngredients);
-
             string[] beefTacoIngredients = {"Beef", "Cheese", "Tomatoes",
         "Hot Sauce", "Lettuce"};
 
-            string beefTacoIngredientsToPrint = string.Join(",", beefTacoIngredients);
-
             string[] chickenOnTheBeachIngredients = { "Chicken", "Cheese", "Rice", "More Cheese", "Love" };
 
-            string chickenOnTheBeachIngredientsToPrint = string.Join(",", chickenOnTheBeachIngredients);
 
-            Menu chickenTaco = new Menu("Chicken Taco Meal", 1, "Two Chicken Tacos in flour tortillas with a side of beans and rice", 6.75m, chickenTacoIngredientsToPrint);
+            Menu chickenTaco = new Menu("Chicken Taco Meal", 1, "Two Chicken Tacos in flour tortillas with a side of beans and rice", 6.75m, chickenTacoIngredients);
 
-            Menu beefTaco = new Menu("Beef Taco Meal", 2, "Two Beef Tacos in flour tortillas with a side of beans and rice", 5.90m, beefTacoIngredientsToPrint);
+            Menu beefTaco = new Menu("Beef Taco Meal", 2, "Two Beef Tacos in flour tortillas with a side of beans and rice", 5.90m, beefTacoIngredients);
 
-            Menu chickenOnTheBeach = new Menu("Chicken on The Beach", 3, "Chicken and rice with cheese sauce", 7.15m, chickenOnTheBeachIngredientsToPrint);
+            Menu chickenOnTheBeach = new Menu("Chicken on The Beach", 3, "Chicken and rice with cheese sauce", 7.15m, chickenOnTheBeachIngredients);
 
 
             Menu[] menuArr = { chickenTaco, beefTaco, chickenOnTheBeach };

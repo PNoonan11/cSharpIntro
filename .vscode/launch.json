@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/MoldyPotatoes.ConsoleApp/bin/Debug/net6.0/MoldyPotatoes.ConsoleApp.dll",
+            "program": "${workspaceFolder}/Cafe.ConsoleApp/bin/Debug/net6.0/Cafe.ConsoleApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/MoldyPotatoes.ConsoleApp",
+            "cwd": "${workspaceFolder}/Cafe.ConsoleApp",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "integratedTerminal",
             "stopAtEntry": false

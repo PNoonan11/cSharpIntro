@@ -30,7 +30,7 @@ namespace Cafe.ConsoleApp
             switch (userInput)
             {
                 case "1":
-                    //CreateNewMenuItem();
+                    CreateNewMenuItem();
                     break;
                 case "2":
                     DeleteMenuItem();
@@ -42,6 +42,35 @@ namespace Cafe.ConsoleApp
                     InvalidInputReturnToMainMenu();
                     break;
             }
+        }
+
+        private void CreateNewMenuItem()
+        {
+            _console.EnterNewMealName();
+            string nameOfMeal = _console.GetUserInput();
+
+            _console.EnterNewMealNumber();
+            int mealNumber = Int32.Parse(_console.GetUserInput());
+
+            _console.EnterNewMealDescription();
+            string description = _console.GetUserInput();
+
+            _console.EnterNewMealPrice();
+            decimal price = Convert.ToDecimal(_console.GetUserInput());
+
+
+            _console.EnterNewMealIngredient();
+            string userInputOne = _console.GetUserInput();
+            string[] ingredients = CreateNewMenuItemIngredients(userInputOne);
+            AddingIngredients();
+            // _console.AddAdditionalIngredientsToMeal();
+            // string userInput = _console.GetUserInput();
+            // AddAdditionalIngredientsSwitchCase(userInput);
+
+            Menu newMeal = new Menu(nameOfMeal, mealNumber, description, price, ingredients);
+
+            _repo.AddMealToDatabase(newMeal);
+            _console.PressAnyKeyToContinue();
         }
         public void ViewWholeMenu()
         {
@@ -78,7 +107,7 @@ namespace Cafe.ConsoleApp
             {
                 _console.MealNotFound(menuItemToBeDeleted);
             }
-            _console.PressAnyKeyToContinue();
+
         }
 
         private void InvalidInputReturnToMainMenu()
@@ -88,6 +117,62 @@ namespace Cafe.ConsoleApp
             _console.PrintMainMenu();
         }
 
+        public string[] CreateNewMenuItemIngredients(string ingredient)
+        {
+            string[] ingredients = new string[10];
+            string userInput = _console.GetUserInput();
+            AddAdditionalIngredientsSwitchCase(userInput);
+            while (userInput != "n")
+            {
+                for (int i = 0; i < ingredients.Length; i++)
+                {
+                    ingredients[i] = ingredient;
+
+                    return ingredients;
+                }
+
+
+            }
+
+            return ingredients;
+        }
+
+        public string[] AddAdditionalIngredientsSwitchCase(string userInput)
+        {
+
+
+            _console.EnterNewMealIngredient();
+            string input = _console.GetUserInput();
+            CreateNewMenuItemIngredients(input);
+            return null;
+        }
+        public string[] AddingIngredients()
+        {
+            _console.EnterNewMealIngredient();
+            string userInputOne = _console.GetUserInput();
+            string[] ingredients = CreateNewMenuItemIngredients(userInputOne);
+            return ingredients;
+            _console.AddAdditionalIngredientsToMeal();
+            string userInput = _console.GetUserInput();
+            AddAdditionalIngredientsSwitchCase(userInput);
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -95,4 +180,14 @@ namespace Cafe.ConsoleApp
 
 
     }
+
+
+
+
+
+
+
+
+
+
 }

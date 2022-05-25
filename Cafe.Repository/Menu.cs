@@ -12,13 +12,13 @@ namespace Cafe.Repository
         public int MealNumber { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public string Ingredients { get; set; }
+        public string[] Ingredients { get; set; }
 
-        public Menu(string nameOfMeal, int mealNumber, string description, decimal price, string ingredients)
+        public Menu(string nameOfMeal, int mealNumber, string description, decimal price, string[] ingredients)
         {
             NameOfMeal = nameOfMeal;
             MealNumber = mealNumber;
-            Description = Description;
+            Description = description;
             Price = price;
             Ingredients = ingredients;
         }
