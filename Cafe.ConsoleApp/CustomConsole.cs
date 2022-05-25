@@ -10,15 +10,16 @@ namespace Cafe.ConsoleApp
     {
         public void PrintMainMenu()
         {
-            Console.WriteLine("1. Create New Menu Item\n" +
-                            "2. Delete Menu Item. \n " +
+            Console.WriteLine("Komodo Cafe Menu Management System\n\n" +
+                            "1. Create New Menu Item\n" +
+                            "2. Delete Menu Item. \n" +
                             "3. View All Menu Items\n");
         }
         public string GetUserInput()
         {
             return Console.ReadLine();
         }
-        private readonly Menu meal;
+
 
         public void PrintMenu(Menu meal)
         {
@@ -60,10 +61,18 @@ namespace Cafe.ConsoleApp
         {
             Console.WriteLine("Enter an ingredient for the new meal: ");
         }
-
-        public void AddAdditionalIngredientsToMeal()
+        public void EnterNewMealIngredientAmount()
         {
-            Console.WriteLine("Would you like to add an additional ingredient to the meal? Enter y or n:\n");
+            Console.WriteLine("How many ingredients would you like to add to the new meal?: ");
+        }
+
+        public void MealAddedToDatabase()
+        {
+            Console.WriteLine("Your meal has been added to the menu!");
+        }
+        public void DoneAddingIngredients()
+        {
+            Console.WriteLine("Your ingredients have been added to the new meal.");
         }
 
 

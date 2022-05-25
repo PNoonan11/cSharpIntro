@@ -58,18 +58,26 @@ namespace Cafe.ConsoleApp
             _console.EnterNewMealPrice();
             decimal price = Convert.ToDecimal(_console.GetUserInput());
 
-
+            _console.EnterNewMealIngredientAmount(); //Hate this, but couldnt get it to work correctly if I split it up into singular methods :sadface:
+            string inputToInt = _console.GetUserInput();
+            int ingredientAmount = Convert.ToInt32(inputToInt);
             _console.EnterNewMealIngredient();
-            string userInputOne = _console.GetUserInput();
-            string[] ingredients = CreateNewMenuItemIngredients(userInputOne);
-            AddingIngredients();
-            // _console.AddAdditionalIngredientsToMeal();
-            // string userInput = _console.GetUserInput();
-            // AddAdditionalIngredientsSwitchCase(userInput);
+            string userInput = _console.GetUserInput();
+            string[] ingredients = new string[ingredientAmount];
+            for (int i = 0; i <= ingredients.Length; i++)
+            {
+                _console.EnterNewMealIngredient();
+                ingredients[i] = _console.GetUserInput();
+            }
+
+            _console.DoneAddingIngredients();
+            _console.PressAnyKeyToContinue();
+
 
             Menu newMeal = new Menu(nameOfMeal, mealNumber, description, price, ingredients);
 
             _repo.AddMealToDatabase(newMeal);
+            _console.MealAddedToDatabase();
             _console.PressAnyKeyToContinue();
         }
         public void ViewWholeMenu()
@@ -119,21 +127,20 @@ namespace Cafe.ConsoleApp
 
         public string[] CreateNewMenuItemIngredients(string ingredient)
         {
-            string[] ingredients = new string[10];
+            string[] ingredients = new string[5];
             string userInput = _console.GetUserInput();
-            AddAdditionalIngredientsSwitchCase(userInput);
             while (userInput != "n")
             {
                 for (int i = 0; i < ingredients.Length; i++)
                 {
                     ingredients[i] = ingredient;
 
-                    return ingredients;
+                    //CreateNewMenuItemIngredients(userInput);
                 }
-
-
             }
 
+            _console.DoneAddingIngredients();
+            _console.PressAnyKeyToContinue();
             return ingredients;
         }
 
@@ -146,17 +153,17 @@ namespace Cafe.ConsoleApp
             CreateNewMenuItemIngredients(input);
             return null;
         }
-        public string[] AddingIngredients()
-        {
-            _console.EnterNewMealIngredient();
-            string userInputOne = _console.GetUserInput();
-            string[] ingredients = CreateNewMenuItemIngredients(userInputOne);
-            return ingredients;
-            _console.AddAdditionalIngredientsToMeal();
-            string userInput = _console.GetUserInput();
-            AddAdditionalIngredientsSwitchCase(userInput);
+        // public string[] AddingIngredients()
+        // {
+        //     _console.EnterNewMealIngredient();
+        //     string userInputOne = _console.GetUserInput();
+        //     string[] ingredients = CreateNewMenuItemIngredients(userInputOne);
+        //     return ingredients;
+        //     _console.AddAdditionalIngredientsToMeal();
+        //     string userInput = _console.GetUserInput();
+        //     AddAdditionalIngredientsSwitchCase(userInput);
 
-        }
+        // }
 
 
 
