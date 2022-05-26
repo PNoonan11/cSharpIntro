@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
 // Komodo accountants need a list of all outings, the cost of all outings combined, and the cost of all types of outings combined.
 
 // Here are the parts of an outing:
@@ -17,3 +16,8 @@ Console.WriteLine("Hello, World!");
 // They 'd like to see a display for the combined cost for all outings.
 // They 'd like to see a display of outing costs by type.
 // For example, all bowling outings for the year were $2000.00. All Concert outings cost $5000.00.
+using Outings.ConsoleApp;
+
+UserInterface _ui = new UserInterface();
+
+_ui.Run();
