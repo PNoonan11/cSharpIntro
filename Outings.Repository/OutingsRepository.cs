@@ -74,6 +74,8 @@ namespace Outings.Repository
 
 
 
+
+
         public void SeedOutingData()
         {
             OutingList sixFlags = new OutingList(EventType.AmusementPark, 74, "02 / 20 / 2019", 145.52m, 10768.48m);

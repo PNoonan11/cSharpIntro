@@ -12,7 +12,8 @@ namespace Outings.ConsoleApp
             Console.WriteLine("Komodo Outings Database\n\n" +
                             "1. View All Outings.\n" +
                             "2. Total Cost of All Outing Types. \n" +
-                            "3. Cost of Outing by Type. \n");
+                            "3. Cost of Outing by Type. \n" +
+                            "4. Add Outing To Database.");
         }
         public void PressAnyKeyToContinue()
         {
@@ -50,19 +51,53 @@ namespace Outings.ConsoleApp
 
         public void TotalCostOfAllOutingsByType(decimal cost)
         {
-            Console.WriteLine($"The total cost of this Outing Type is: ${cost}");
+            Console.WriteLine($"The total cost of this Outing Type is: ${cost}\n");
+        }
+        public void TotalCostOfAllOutings(decimal cost)
+        {
+            Console.WriteLine($"The total cost of all Outings: ${cost}\n");
+        }
+
+        public void EventTypeSelectionMenu()
+        {
+            Console.WriteLine("Select a Type for the new outing.\n");
+            Console.WriteLine("1. Golf.\n" +
+                            "2. Bowling.\n" +
+                            "3. Amusement Park.\n" +
+                            "4. Concert.\n");
+        }
+        public void NewOutingAttendeeCount()
+        {
+            Console.WriteLine("How many people attended the outing?:");
+        }
+
+        public void NewOutingDateEntry()
+        {
+            Console.WriteLine("Enter the date of the Outing(mm/dd/yy):");
+        }
+
+        public void NewOutingCostPerPerson()
+        {
+            Console.WriteLine("Please enter the cost PER PERSON for the outing:");
+        }
+        public void NewOutingAdded(OutingList outing)
+        {
+            Console.WriteLine($"Your new {outing.TypeOfEvent} outing has been added to the database!");
         }
 
 
 
 
 
-
-
+        public void Clear()
+        {
+            Console.Clear();
+        }
         public void InvalidInput()
         {
             Console.WriteLine("Invalid input received, returning to main menu...");
         }
+
 
 
 
