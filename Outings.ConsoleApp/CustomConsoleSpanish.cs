@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Outings.Repository;
+
 namespace Outings.ConsoleApp
 {
+    public class CustomConsoleSpanish : ICustomConsole
 
-
-    public class CustomConsole : ICustomConsole
     {
+
+
+
 
 
         public void PrintMainMenu()
         {
-            Console.WriteLine("Komodo Outings Database\n\n" +
-                            "1. View All Outings.\n" +
-                            "2. Total Cost of All Outing Types. \n" +
-                            "3. Cost of Outing by Type. \n" +
-                            "4. Add Outing To Database.");
+            Console.WriteLine("Base de datos de salidas de Komodo\n\n" +
+                            "1. Ver todas las salidas.\n" +
+                            "2. Costo total de todos los tipos de salidas.\n" +
+                            "3. Costo de salida por tipo. \n" +
+                            "4. Agregar salida a la base de datos.");
         }
         public void PressAnyKeyToContinue()
         {
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Pulse cualquier tecla para continuar...");
             Console.ReadKey();
         }
         public string GetUserInput()
@@ -37,62 +40,62 @@ namespace Outings.ConsoleApp
         }
         public void PrintMenu(OutingList outing)
         {
-            Console.WriteLine($"Type Of Event: {outing.TypeOfEvent}\n" +
-                            $"Number of Attendees: {outing.NumberOfAttendees}\n" +
-                            $"Date of Event: {outing.Date}\n" +
-                            $"Cost Per Person : ${outing.CostPerPerson}\n" +
-                            $"Total Cost of the Outing: ${outing.TotalEventCost}\n");
+            Console.WriteLine($"Tipo de evento: {outing.TypeOfEvent}\n" +
+                            $"Número de asistentes: {outing.NumberOfAttendees}\n" +
+                            $"Fecha del evento: {outing.Date}\n" +
+                            $"Coste por persona: ${outing.CostPerPerson}\n" +
+                            $"Coste Total de la Salida: ${outing.TotalEventCost}\n");
         }
 
         public void OutingTypeSelectorTotalCost()
         {
-            Console.WriteLine("Which outing type would you like to view total cost for?\n" +
-                            "1. Golf Outings.\n" +
-                            "2. Bowling Outings.\n" +
-                            "3. Amusement Park Outings.\n" +
-                            "4. Concert Outings.\n");
+            Console.WriteLine("¿Para qué tipo de salida te gustaría ver el costo total?\n" +
+                            "1. Salidas de golf.\n" +
+                            "2. Salidas de bolos.\n" +
+                            "3. Salidas al parque de diversiones..\n" +
+                            "4. Salidas de conciertos.\n");
         }
 
         public void TotalCostOfAllOutingsByType(decimal cost)
         {
-            Console.WriteLine($"The total cost of this Outing Type is: ${cost}\n");
+            Console.WriteLine($"El costo total de este tipo de salida es: ${cost}\n");
         }
         public void TotalCostOfAllOutings(decimal cost)
         {
-            Console.WriteLine($"The total cost of all Outings: ${cost}\n");
+            Console.WriteLine($"El costo total de todas las salidas: ${cost}\n");
         }
 
         public void EventTypeSelectionMenu()
         {
-            Console.WriteLine("Select a Type for the new outing.\n");
+            Console.WriteLine("Seleccione un Tipo para la nueva salida.\n");
             Console.WriteLine("1. Golf.\n" +
-                            "2. Bowling.\n" +
-                            "3. Amusement Park.\n" +
-                            "4. Concert.\n");
+                            "2. Bolos.\n" +
+                            "3. Parque de diversiones.\n" +
+                            "4. Concierto.\n");
         }
         public void NewOutingAttendeeCount()
         {
-            Console.WriteLine("How many people attended the outing?:");
+            Console.WriteLine("¿Cuántas personas asistieron a la salida?:");
         }
 
         public void NewOutingDateEntry()
         {
-            Console.WriteLine("Enter the date of the Outing(mm/dd/yy):");
+            Console.WriteLine("Ingrese la fecha de la Salida (mm/dd/aa):");
         }
 
         public void NewOutingCostPerPerson()
         {
-            Console.WriteLine("Please enter the cost PER PERSON for the outing:");
+            Console.WriteLine("Ingrese el costo POR PERSONA de la salida:");
         }
         public void NewOutingAdded(OutingList outing)
         {
-            Console.WriteLine($"Your new {outing.TypeOfEvent} outing has been added to the database!");
+            Console.WriteLine($"¡Tu nueva salida {outing.TypeOfEvent} se ha agregado a la base de datos!");
         }
 
         public void ErrorHasOccurred(Exception e)
         {
 
-            Console.WriteLine("An error has occurred:", e.Message);
+            Console.WriteLine("Se ha producido un error:", e.Message);
         }
 
         public void TitleArt()
@@ -107,7 +110,7 @@ namespace Outings.ConsoleApp
 #+#   #+# #+#    #+# #+#       #+# #+#    #+# #+#    #+# #+#    #+# 
 ###    ### ########  ###       ###  ########  #########   ######## ";
             Console.WriteLine(title);
-            Console.WriteLine("OUTING MANAGEMENT SYSTEM\n");
+            Console.WriteLine("SISTEMA DE GESTIÓN DE SALIDAS\n");
             PressAnyKeyToContinue();
             Clear();
 
@@ -135,3 +138,4 @@ namespace Outings.ConsoleApp
 
     }//class
 }//namespace
+

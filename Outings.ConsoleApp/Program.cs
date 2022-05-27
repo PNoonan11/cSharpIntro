@@ -17,7 +17,27 @@
 // They 'd like to see a display of outing costs by type.
 // For example, all bowling outings for the year were $2000.00. All Concert outings cost $5000.00.
 using Outings.ConsoleApp;
+Console.WriteLine("1. ENGLISH\n" +
+                "2. ESPANOL\n");
 
-UserInterface _ui = new UserInterface();
+string input = Console.ReadLine();
+
+ICustomConsole console;
+
+switch (input)
+{
+    case "1":
+        console = new CustomConsole();
+        break;
+    case "2":
+        console = new CustomConsoleSpanish();
+        break;
+    default:
+        console = new CustomConsole();
+        break;
+}
+
+
+UserInterface _ui = new UserInterface(console);
 
 _ui.Run();

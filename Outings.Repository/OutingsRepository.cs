@@ -7,8 +7,11 @@ namespace Outings.Repository
 {
     public class OutingsRepository
     {
+
+        // This is the "database"
         List<OutingList> _outingDB = new List<OutingList>();
 
+        // adding to "database"
         public void AddOutingToDatabase(OutingList outing)
         {
             _outingDB.Add(outing);
@@ -18,6 +21,8 @@ namespace Outings.Repository
         {
             return _outingDB;
         }
+
+        //takes user input to sort outings by type. 
         public List<OutingList> GetOutingsByType(EventType? selectedOuting)
         {
             List<OutingList> outingsByType = new List<OutingList>();
@@ -31,6 +36,7 @@ namespace Outings.Repository
             return outingsByType;
         }
 
+        //calculates total cost for events 
         public decimal OutingsTotalCost(List<OutingList> listByOutingType)
         {
             decimal totalCost = 0m;
@@ -40,15 +46,15 @@ namespace Outings.Repository
             }
             return totalCost;
         }
-        public decimal OutingsPerPersonCost(List<OutingList> listByOutingType)
-        {
-            decimal perPersonCost = 0m;
-            foreach (OutingList x in listByOutingType)
-            {
-                perPersonCost += x.CostPerPerson;
-            }
-            return perPersonCost;
-        }
+        // public decimal OutingsPerPersonCost(List<OutingList> listByOutingType) //misread the prompt, but left this because it was the solution to the white board problem I missed. :( im an idiot
+        // {
+        //     decimal perPersonCost = 0m;
+        //     foreach (OutingList x in listByOutingType)
+        //     {
+        //         perPersonCost += x.CostPerPerson;
+        //     }
+        //     return perPersonCost;
+        // }
 
 
 
