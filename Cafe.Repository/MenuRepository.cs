@@ -12,15 +12,21 @@ namespace Cafe.Repository
     {
         List<Menu> _menuList = new List<Menu>();
 
+
+        // add new meal to the database
+
         public void AddMealToDatabase(Menu meal)
         {
             _menuList.Add(meal);
         }
+
+        //prints database to console
         public List<Menu> ViewWholeMenu()
         {
             return _menuList;
         }
 
+        //search menu by the meal name
         public Menu GetMealByName(string mealName)
         {
             foreach (Menu x in _menuList)
@@ -42,7 +48,7 @@ namespace Cafe.Repository
 
 
 
-
+        //Delete item from the menu
 
 
         public bool DeleteMenuItem(Menu meal)

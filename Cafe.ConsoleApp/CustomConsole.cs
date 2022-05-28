@@ -114,6 +114,13 @@ namespace Cafe.ConsoleApp
             Console.Clear();
         }
 
+        // TRY CATCHES - 
+        public void ErrorHasOccurred(Exception e)
+        {
+
+            Console.WriteLine("An error has occurred:", e.Message);
+        }
+
 
 
 
