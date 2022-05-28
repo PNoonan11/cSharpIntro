@@ -15,6 +15,7 @@ namespace Cafe.ConsoleApp
 
         public void Run()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             _repo.SeedMenuData();
 
             while (isRunning)

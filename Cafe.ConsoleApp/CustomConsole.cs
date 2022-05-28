@@ -75,9 +75,6 @@ namespace Cafe.ConsoleApp
             Console.WriteLine("Your ingredients have been added to the new meal.");
         }
 
-
-
-
         public void PressAnyKeyToContinue()
         {
             Console.WriteLine("Press any key to continue...");
